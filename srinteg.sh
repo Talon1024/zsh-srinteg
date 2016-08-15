@@ -3,7 +3,7 @@
 
 use_credentials=0
 urls=()
-algos=(sha384)
+algos=()
 
 for ((curargi=1;curargi<=$#;++curargi)); do
   curarg=${@[curargi]}
@@ -17,6 +17,9 @@ for ((curargi=1;curargi<=$#;++curargi)); do
     urls+="$curarg"
   fi
 done
+
+# Use sha384 by default
+algos=(${algos:-sha384})
 
 xostr="crossorigin=\""
 if [[ $use_credentials -eq 0 ]] {
