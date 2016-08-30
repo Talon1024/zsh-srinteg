@@ -34,6 +34,8 @@ if [[ "${#urls}" -gt 0 ]]; then
     get=cat
     if [[ "${(L)fileurl:0:7}" == "http://" ]]; then
       get=curl
+    elif [[ "${(L)fileurl:0:8}" == "https://" ]]; then
+      get=curl
     elif [[ "${(L)fileurl:0:7}" == "file://" ]]; then
       fileurl="${fileurl[7,-1]}"
     fi
